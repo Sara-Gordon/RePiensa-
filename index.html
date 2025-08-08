@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RePiensa - App de Reflexión</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #ffeaf2;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background-color: #fff0f6;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(255, 173, 199, 0.4);
+      padding: 30px;
+    }
+    h1 {
+      color: #d63384;
+    }
+    input, button {
+      width: 90%;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: #d63384;
+      color: white;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    .frase, .alternativas {
+      margin-top: 20px;
+      background-color: #fff5fa;
+      padding: 15px;
+      border-radius: 12px;
+    }
+    ul {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>💭 RePiensa</h1>
+    <p>Antes de comprar, detente un momento... ✨</p>
+
+    <div id="pantalla1">
+      <p>✍️ ¿Por qué quieres comprar esto?</p>
+      <input type="text" id="motivo" placeholder="Escribe tu motivo aquí..." />
+      <button onclick="mostrarReflexión()">Continuar</button>
+    </div>
+
+    <div id="pantalla2" class="hidden">
+      <div class="frase">
+        <p id="fraseMotivadora">💬</p>
+      </div>
+      <div class="alternativas">
+        <p>🌈 Prueba una de estas alternativas:</p>
+        <ul>
+          <li>🧘‍♀️ Respira profundamente 1 minuto</li>
+          <li>📝 Escribe cómo te sientes en una nota</li>
+          <li>🎧 Escucha tu canción favorita</li>
+          <li>📞 Llama a alguien que te haga bien</li>
+          <li>🚶 Sal a caminar 5 minutos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const frases = [
+      "🧠 No llenes vacíos emocionales con cosas.",
+      "💗 A veces lo que necesitas no se compra.",
+      "🌱 Regálate calma, no una compra impulsiva.",
+      "✨ Tu valor no está en lo que posees.",
+      "🛍️ Pensar antes de comprar es amarte un poquito más."
+    ];
+
+    function mostrarReflexión() {
+      const motivo = document.getElementById("motivo").value.trim();
+      if (motivo === "") {
+        alert("Por favor, escribe un motivo antes de continuar 📝");
+        return;
+      }
+
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+      document.getElementById("fraseMotivadora").innerText = frase;
+
+      document.getElementById("pantalla1").classList.add("hidden");
+      document.getElementById("pantalla2").classList.remove("hidden");
+    }
+  </script>
+
+</body>
+</html>
