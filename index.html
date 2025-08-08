@@ -2,106 +2,144 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RePiensa - App de Reflexión</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RePiensa - Educación emocional</title>
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #ffeaf2;
-      color: #333;
-      text-align: center;
-      padding: 20px;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f7f1f8;
+      margin: 0;
+      padding: 0;
     }
-    .container {
-      max-width: 400px;
-      margin: auto;
-      background-color: #fff0f6;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(255, 173, 199, 0.4);
-      padding: 30px;
-    }
-    h1 {
-      color: #d63384;
-    }
-    input, button {
-      width: 90%;
-      padding: 10px;
-      margin-top: 15px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-    }
-    button {
-      background-color: #d63384;
+
+    header {
+      background: #ff8ebf;
+      padding: 1rem;
       color: white;
-      cursor: pointer;
+      text-align: center;
+      font-size: 1.5rem;
     }
-    .hidden {
+
+    nav {
+      background: #ffd3e3;
+      display: flex;
+      justify-content: space-around;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 2rem;
       display: none;
     }
-    .frase, .alternativas {
-      margin-top: 20px;
-      background-color: #fff5fa;
-      padding: 15px;
-      border-radius: 12px;
+
+    section.active {
+      display: block;
     }
-    ul {
-      text-align: left;
+
+    .frase {
+      background: #fff;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-left: 5px solid #ff8ebf;
+      font-style: italic;
+    }
+
+    .actividad input,
+    .actividad textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .actividad button {
+      background: #ff8ebf;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #eee;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 3rem;
     }
   </style>
 </head>
 <body>
+  <header>🌸 RePiensa: Educación emocional para la Gen Z</header>
 
-  <div class="container">
-    <h1>💭 RePiensa</h1>
-    <p>Antes de comprar, detente un momento... ✨</p>
+  <nav>
+    <a href="#" onclick="mostrar('inicio')">Inicio</a>
+    <a href="#" onclick="mostrar('info')">¿Qué es?</a>
+    <a href="#" onclick="mostrar('frases')">Frases</a>
+    <a href="#" onclick="mostrar('actividad')">Actividad</a>
+    <a href="#" onclick="mostrar('recursos')">Recursos</a>
+    <a href="#" onclick="mostrar('nosotros')">Nosotros</a>
+  </nav>
 
-    <div id="pantalla1">
-      <p>✍️ ¿Por qué quieres comprar esto?</p>
-      <input type="text" id="motivo" placeholder="Escribe tu motivo aquí..." />
-      <button onclick="mostrarReflexión()">Continuar</button>
+  <section id="inicio" class="active">
+    <h2>Bienvenido a RePiensa</h2>
+    <p>Esta plataforma busca promover la reflexión emocional antes del consumo impulsivo. 💭</p>
+    <p>Dirigido a jóvenes de la Generación Z, con el respaldo de educadores, padres e instituciones. 💡</p>
+  </section>
+
+  <section id="info">
+    <h2>¿Qué es el sobreconsumo emocional?</h2>
+    <p>Es cuando compramos cosas no por necesidad real, sino por ansiedad, tristeza o impulso emocional. A veces, buscamos sentirnos mejor de forma momentánea, pero luego puede haber arrepentimiento o vacío emocional.</p>
+  </section>
+
+  <section id="frases">
+    <h2>Frases para reflexionar 🧘‍♀️</h2>
+    <div class="frase">"No compres lo que no necesitas, para impresionar a quienes no conoces."</div>
+    <div class="frase">"Antes de llenar tu carrito, llena tu mente de claridad."</div>
+    <div class="frase">"El vacío emocional no se llena con cosas, se sana con conciencia."</div>
+  </section>
+
+  <section id="actividad">
+    <h2>✍️ Antes de comprar...</h2>
+    <p>Piensa y escribe: ¿Por qué quiero comprar esto?</p>
+    <div class="actividad">
+      <textarea placeholder="Escribe aquí tu motivo..."></textarea>
+      <button onclick="alert('Gracias por reflexionar antes de comprar ❤️')">Enviar</button>
     </div>
+  </section>
 
-    <div id="pantalla2" class="hidden">
-      <div class="frase">
-        <p id="fraseMotivadora">💬</p>
-      </div>
-      <div class="alternativas">
-        <p>🌈 Prueba una de estas alternativas:</p>
-        <ul>
-          <li>🧘‍♀️ Respira profundamente 1 minuto</li>
-          <li>📝 Escribe cómo te sientes en una nota</li>
-          <li>🎧 Escucha tu canción favorita</li>
-          <li>📞 Llama a alguien que te haga bien</li>
-          <li>🚶 Sal a caminar 5 minutos</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <section id="recursos">
+    <h2>📚 Recursos recomendados</h2>
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=videoejemplo" target="_blank">Video: ¿Qué es el consumo emocional?</a></li>
+      <li><a href="https://www.articuloejemplo.com" target="_blank">Artículo: Cómo identificar el consumo impulsivo</a></li>
+    </ul>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre nosotros</h2>
+    <p><strong>RePiensa</strong> es una propuesta educativa pensada para ayudar a jóvenes de la Generación Z a desarrollar consciencia emocional al consumir. Está dirigida a instituciones educativas, padres de familia y formadores como herramienta digital de prevención.</p>
+  </section>
+
+  <footer>
+    🌼 Hecho con ❤️ por Sarita | RePiensa 2025
+  </footer>
 
   <script>
-    const frases = [
-      "🧠 No llenes vacíos emocionales con cosas.",
-      "💗 A veces lo que necesitas no se compra.",
-      "🌱 Regálate calma, no una compra impulsiva.",
-      "✨ Tu valor no está en lo que posees.",
-      "🛍️ Pensar antes de comprar es amarte un poquito más."
-    ];
-
-    function mostrarReflexión() {
-      const motivo = document.getElementById("motivo").value.trim();
-      if (motivo === "") {
-        alert("Por favor, escribe un motivo antes de continuar 📝");
-        return;
-      }
-
-      const frase = frases[Math.floor(Math.random() * frases.length)];
-      document.getElementById("fraseMotivadora").innerText = frase;
-
-      document.getElementById("pantalla1").classList.add("hidden");
-      document.getElementById("pantalla2").classList.remove("hidden");
+    function mostrar(seccion) {
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById(seccion).classList.add("active");
     }
   </script>
-
 </body>
 </html>
+
