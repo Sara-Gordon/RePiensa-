@@ -1,145 +1,223 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RePiensa - Educación emocional</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RePiensa - Reflexiona antes de comprar</title>
+<style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f7f1f8;
-      margin: 0;
-      padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f5f0e6;
+        color: #333;
+        margin: 0;
+        padding: 0;
     }
-
     header {
-      background: #ff8ebf;
-      padding: 1rem;
-      color: white;
-      text-align: center;
-      font-size: 1.5rem;
+        background-color: #dba39a;
+        color: white;
+        text-align: center;
+        padding: 1rem;
     }
-
     nav {
-      background: #ffd3e3;
-      display: flex;
-      justify-content: space-around;
-      padding: 1rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
+        display: flex;
+        justify-content: center;
+        background-color: #7b8b8d;
+        padding: 0.5rem;
+        flex-wrap: wrap;
     }
-
     nav a {
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        margin: 0.2rem;
+        border-radius: 5px;
+        background-color: #9caeb0;
+        transition: background 0.3s;
     }
-
+    nav a:hover {
+        background-color: #5e6d6f;
+    }
     section {
-      padding: 2rem;
-      display: none;
+        padding: 1rem;
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        margin-top: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-
-    section.active {
-      display: block;
+    button {
+        background-color: #dba39a;
+        color: white;
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 0.5rem;
     }
-
-    .frase {
-      background: #fff;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-left: 5px solid #ff8ebf;
-      font-style: italic;
+    button:hover {
+        background-color: #b97d75;
     }
-
-    .actividad input,
-    .actividad textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
+    .tarjeta {
+        background-color: #f9f5f0;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        border-radius: 8px;
+        border: 1px solid #ddd;
     }
-
-    .actividad button {
-      background: #ff8ebf;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
+    .chat-box, .diario-box {
+        border: 1px solid #ccc;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #f9f5f0;
+        min-height: 120px;
     }
-
-    footer {
-      background: #eee;
-      padding: 1rem;
-      text-align: center;
-      margin-top: 3rem;
+    input, textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.3rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
     }
-  </style>
+    ul {
+        padding-left: 20px;
+    }
+</style>
 </head>
 <body>
-  <header>🌸 RePiensa: Educación emocional para la Gen Z</header>
 
-  <nav>
-    <a href="#" onclick="mostrar('inicio')">Inicio</a>
-    <a href="#" onclick="mostrar('info')">¿Qué es?</a>
-    <a href="#" onclick="mostrar('frases')">Frases</a>
-    <a href="#" onclick="mostrar('actividad')">Actividad</a>
-    <a href="#" onclick="mostrar('recursos')">Recursos</a>
-    <a href="#" onclick="mostrar('nosotros')">Nosotros</a>
-  </nav>
+<header>
+    <h1>🧠 RePiensa</h1>
+    <p>Reflexiona antes de comprar</p>
+</header>
 
-  <section id="inicio" class="active">
+<nav>
+    <a href="#inicio">🏠 Inicio</a>
+    <a href="#frases">💬 Frases</a>
+    <a href="#actividad">🛒 Motivo de compra</a>
+    <a href="#test">✅ Mini test</a>
+    <a href="#diario">📓 Diario</a>
+    <a href="#chat">🤖 Chat IA</a>
+    <a href="#actividades">🧘 Actividades</a>
+    <a href="#recursos">📚 Recursos</a>
+</nav>
+
+<section id="inicio">
     <h2>Bienvenido a RePiensa</h2>
-    <p>Esta plataforma busca promover la reflexión emocional antes del consumo impulsivo. 💭</p>
-    <p>Dirigido a jóvenes de la Generación Z, con el respaldo de educadores, padres e instituciones. 💡</p>
-  </section>
+    <p>Una herramienta para ayudarte a reflexionar antes de comprar y promover hábitos de consumo consciente.</p>
+</section>
 
-  <section id="info">
-    <h2>¿Qué es el sobreconsumo emocional?</h2>
-    <p>Es cuando compramos cosas no por necesidad real, sino por ansiedad, tristeza o impulso emocional. A veces, buscamos sentirnos mejor de forma momentánea, pero luego puede haber arrepentimiento o vacío emocional.</p>
-  </section>
+<section id="frases">
+    <h2>💬 Frases motivadoras</h2>
+    <p id="frase">Presiona el botón para recibir inspiración</p>
+    <button onclick="nuevaFrase()">Obtener frase</button>
+</section>
 
-  <section id="frases">
-    <h2>Frases para reflexionar 🧘‍♀️</h2>
-    <div class="frase">"No compres lo que no necesitas, para impresionar a quienes no conoces."</div>
-    <div class="frase">"Antes de llenar tu carrito, llena tu mente de claridad."</div>
-    <div class="frase">"El vacío emocional no se llena con cosas, se sana con conciencia."</div>
-  </section>
+<section id="actividad">
+    <h2>🛒 Escribe tu motivo antes de comprar</h2>
+    <textarea id="motivo" placeholder="Escribe aquí tu motivo..."></textarea>
+    <button onclick="guardarMotivo()">Guardar motivo</button>
+    <div id="motivosGuardados"></div>
+</section>
 
-  <section id="actividad">
-    <h2>✍️ Antes de comprar...</h2>
-    <p>Piensa y escribe: ¿Por qué quiero comprar esto?</p>
-    <div class="actividad">
-      <textarea placeholder="Escribe aquí tu motivo..."></textarea>
-      <button onclick="alert('Gracias por reflexionar antes de comprar ❤️')">Enviar</button>
+<section id="test">
+    <h2>✅ Mini test: ¿Es tu compra necesaria?</h2>
+    <p>Responde: ¿Lo necesito realmente o es un impulso?</p>
+    <button onclick="alert('Si lo necesitas y puedes pagarlo sin problemas, adelante. Si es impulso, espera 24 horas antes de decidir.')">Responder</button>
+</section>
+
+<section id="diario">
+    <h2>📓 Diario emocional</h2>
+    <textarea id="entradaDiario" placeholder="Escribe cómo te sientes hoy..."></textarea>
+    <button onclick="guardarDiario()">Guardar en diario</button>
+    <div id="listaDiario"></div>
+</section>
+
+<section id="chat">
+    <h2>🤖 Habla con tu asistente virtual</h2>
+    <input id="mensajeUsuario" placeholder="Escribe aquí...">
+    <button onclick="responderIA()">Enviar</button>
+    <div class="chat-box" id="chatBox"></div>
+</section>
+
+<section id="actividades">
+    <h2>🧘 Actividades saludables</h2>
+    <div class="tarjeta">
+        <strong>Yoga 🧘‍♀️</strong> - <a href="https://www.youtube.com/results?search_query=yoga+para+principiantes" target="_blank">Ver videos</a>
     </div>
-  </section>
+    <div class="tarjeta">
+        <strong>Respiración profunda 🌬</strong> - <a href="https://www.youtube.com/results?search_query=ejercicios+de+respiracion" target="_blank">Ver videos</a>
+    </div>
+    <div class="tarjeta">
+        <strong>Mindfulness 🪷</strong> - <a href="https://www.youtube.com/results?search_query=mindfulness" target="_blank">Ver videos</a>
+    </div>
+</section>
 
-  <section id="recursos">
-    <h2>📚 Recursos recomendados</h2>
+<section id="recursos">
+    <h2>📚 Recursos educativos</h2>
     <ul>
-      <li><a href="https://www.youtube.com/watch?v=videoejemplo" target="_blank">Video: ¿Qué es el consumo emocional?</a></li>
-      <li><a href="https://www.articuloejemplo.com" target="_blank">Artículo: Cómo identificar el consumo impulsivo</a></li>
+        <li><a href="https://www.vivosano.org/guia-consejos-consumo-responsable/" target="_blank">Guía de consumo responsable</a></li>
+        <li><a href="https://rappicard.mx/2024/08/27/psicologia-del-gasto/#:~:text=Aqu%C3%AD..." target="_blank">Psicología del gasto</a></li>
+        <li><a href="https://www.servientrega.com/wps/portal/noticias-y-promociones/noticias/principios-del-consumo-responsable..." target="_blank">Principios de consumo responsable</a></li>
+        <li><a href="https://www.naranjax.com/blog/evita-caer-en-los-gastos-emocionales" target="_blank">Evitar gastos emocionales</a></li>
+        <li><a href="https://www.youtube.com/watch?v=_7XMZ-nxiJY" target="_blank">Video 1</a></li>
+        <li><a href="https://www.youtube.com/watch?v=MHO3oUExoGE" target="_blank">Video 2</a></li>
     </ul>
-  </section>
+</section>
 
-  <section id="nosotros">
-    <h2>Sobre nosotros</h2>
-    <p><strong>RePiensa</strong> es una propuesta educativa pensada para ayudar a jóvenes de la Generación Z a desarrollar consciencia emocional al consumir. Está dirigida a instituciones educativas, padres de familia y formadores como herramienta digital de prevención.</p>
-  </section>
-
-  <footer>
-    🌼 Hecho con ❤️ por Sarita | RePiensa 2025
-  </footer>
-
-  <script>
-    function mostrar(seccion) {
-      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-      document.getElementById(seccion).classList.add("active");
+<script>
+    const frases = [
+        "Antes de comprar, pregúntate si lo necesitas realmente.",
+        "Invertir en experiencias vale más que en cosas.",
+        "Un respiro puede salvar tu bolsillo y tu mente.",
+        "Menos cosas, más vida.",
+        "Piensa en cómo te sentirás mañana con esta compra.",
+        "El autocontrol es la mejor inversión."
+    ];
+    function nuevaFrase() {
+        document.getElementById("frase").innerText = frases[Math.floor(Math.random()*frases.length)];
     }
-  </script>
+    function guardarMotivo() {
+        let motivo = document.getElementById("motivo").value;
+        if(motivo.trim() !== ""){
+            let div = document.createElement("div");
+            div.innerText = motivo;
+            document.getElementById("motivosGuardados").appendChild(div);
+            document.getElementById("motivo").value = "";
+        }
+    }
+    function guardarDiario() {
+        let entrada = document.getElementById("entradaDiario").value;
+        if(entrada.trim() !== ""){
+            let div = document.createElement("div");
+            div.innerText = entrada;
+            document.getElementById("listaDiario").appendChild(div);
+            document.getElementById("entradaDiario").value = "";
+        }
+    }
+    function responderIA() {
+        let mensaje = document.getElementById("mensajeUsuario").value.toLowerCase();
+        let respuesta = "";
+        if(mensaje.includes("triste") || mensaje.includes("mal")){
+            respuesta = "Lamento que te sientas así 💙. ¿Qué tal si pruebas una actividad de respiración o yoga para relajarte?";
+        } else if(mensaje.includes("ansioso")){
+            respuesta = "La ansiedad puede ser dura 😌. Tómate un respiro y prueba nuestra sección de mindfulness.";
+        } else if(mensaje.includes("feliz") || mensaje.includes("bien")){
+            respuesta = "¡Me alegra mucho! 🌟 Sigue cuidando tu bienestar y mantente presente.";
+        } else {
+            respuesta = "Gracias por compartir. Estoy aquí para escucharte 🤗.";
+        }
+        let chat = document.getElementById("chatBox");
+        let userMsg = document.createElement("div");
+        userMsg.innerHTML = "<strong>Tú:</strong> " + mensaje;
+        let botMsg = document.createElement("div");
+        botMsg.innerHTML = "<strong>RePiensa:</strong> " + respuesta;
+        chat.appendChild(userMsg);
+        chat.appendChild(botMsg);
+        document.getElementById("mensajeUsuario").value = "";
+    }
+</script>
+
 </body>
 </html>
 
